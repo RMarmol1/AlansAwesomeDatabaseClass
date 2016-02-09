@@ -21,7 +21,7 @@ WHERE city = 'Dallas';
 SELECT name
 FROM agents
 WHERE city != 'New York'
-OR city != 'Tokyo';
+AND city != 'Tokyo';
 
 -- #6 all data for products not in dallas or duluth that costs 1 dollar or more
 SELECT *
