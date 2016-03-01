@@ -34,11 +34,13 @@ FROM customers c INNER JOIN agents a ON c.city = a.city
 	    	    
 
 --7 show name and city of customers  who live in the city that makes the fewest different kinds of products
-SELECT c.name, c.city
+SELECT DISTINCT c.name, c.city
 FROM customers c INNER JOIN products p ON c.city = p.city
-GROUP BY  c.name, c.city
-HAVING count(p.city) < 3
-ORDER BY count(p.city)
+WHERE p.city IN (SELECT city
+		FROM products
+		GROUP BY city
+		ORDER BY count(city) ASC
+		Limit 1)
 
 
 
