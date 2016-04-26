@@ -700,27 +700,25 @@ WHERE ReturnCountry(listeningLocationZip) != ReturnCountry(billingZip);
 
 
 ---Security
-create role database_admin
-grant select,insert,update on all tables in schema public 
-to database_admin
+create role database_admin;
+grant select,insert,update
+ on all tables in schema public 
+to database_admin;
 
-create role premium_user
-grant select paymentinfo, friends, usernames, playlists, artists, albums, songs
-to premium_user
-grant update cardinfo
-to premium_user
-grant insert, update, delete friends, follows, playlists, contains
-to premium_user
+create role premium_user;
+grant select ON paymentinfo, friends, usernames, playlists, artists, albums, songs
+to premium_user;
+grant update  ON cardinfo
+to premium_user;
+grant insert, update, delete ON friends, follows, playlists, contains
+to premium_user;
 
-create role free_user
-grant select friends, usernames, playlists, artists, albums, songs
-to free_user
-grant insert, update, delete friends, follows, playlists, contains
-to free_user
+create role free_user;
+grant select ON friends, usernames, playlists, artists, albums, songs
+to free_user;
+grant insert, update, delete ON friends, follows, playlists, contains
+to free_user;
 
-create role artist
-grant select, delete playsfor, artists, makes, albums, features, songs
-to artist
 
 
 
