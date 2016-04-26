@@ -128,7 +128,7 @@ INSERT INTO CardInfo (cardNumber, firstNameOnCard, lastNameOnCard, billingstreet
 
 CREATE TABLE PaymentInfo (
 	cardNumber char(16) NOT NULL references CardInfo(cardNumber),
-	amountCharged decimal NOT NULL,
+	amountChargedUSD decimal NOT NULL,
 	studentOrNonStudent text NOT NULL,
 	datePaid date NOT NULL,
 	paidForMonth text NOT NULL,
@@ -137,11 +137,11 @@ CREATE TABLE PaymentInfo (
 	PRIMARY KEY (cardNumber, datePaid)
 ); 
 
-INSERT INTO PaymentInfo (cardNumber, amountCharged, studentOrNonStudent, datepaid, paidformonth)
+INSERT INTO PaymentInfo (cardNumber, amountChargedUSD, studentOrNonStudent, datepaid, paidformonth)
 	VALUES	('1111111111111111', '4.99', 'student', '2015-04-01', 'yes'),
 		('1111111111111111', '4.99', 'student', '2015-03-01', 'yes'),
 		('2222222222222222', '9.99', 'non-student', '2015-04-01', 'no');
-INSERT INTO PaymentInfo (cardNumber, amountCharged, studentOrNonStudent, datepaid, paidformonth)
+INSERT INTO PaymentInfo (cardNumber, amountChargedUSD, studentOrNonStudent, datepaid, paidformonth)
 	VALUES	('6666666666666666', '9.99', 'non-student', '2015-04-01', 'yes'),
 		('6666666666666666', '9.99', 'non-student', '2015-03-01', 'yes'),
 		('6666666666666666', '9.99', 'non-student', '2015-02-01', 'yes'),
@@ -764,7 +764,7 @@ $$
 CREATE TRIGGER checkPayment AFTER INSERT OR UPDATE OR DELETE ON paymentinfo
     FOR EACH ROW EXECUTE PROCEDURE checkPayment();
     
---INSERT INTO PaymentInfo (cardNumber, amountCharged, studentOrNonStudent, datepaid, paidformonth)
+--INSERT INTO PaymentInfo (cardNumber, amountChargedUSD, studentOrNonStudent, datepaid, paidformonth)
 --	VALUES	('1111111111111111', '9.99', 'non-student', '2016-04-01', 'no');
 
 
