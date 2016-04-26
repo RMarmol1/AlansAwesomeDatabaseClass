@@ -718,10 +718,6 @@ to free_user
 grant insert, update, delete friends, follows, playlists, contains
 to free_user
 
-create role artist
-grant select, delete playsfor, artists, makes, albums, features, songs
-to artist
-
 
 
 
