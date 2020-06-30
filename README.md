@@ -1,5 +1,6 @@
 This is a recreated database for Spotify music listening platform that I developed for my Database class at Marist College.
 
+Lab files contain SQL code practice.
 
 Check these files for main content:
 
